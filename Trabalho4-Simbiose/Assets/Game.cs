@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
     [SerializeField]
+    private GameObject goMenuPopUp;
+    [SerializeField]
     Color32[] colours;
     [SerializeField]
     Canal[] canals;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,5 +33,20 @@ public class Game : MonoBehaviour
     public Color32[] getColours()
     {
         return colours;
+    }
+
+    public void goMenu()
+    {
+        goMenuPopUp.SetActive(true);
+    }
+
+    public void goMenuClose()
+    {
+        goMenuPopUp.SetActive(false);
+    }
+
+    public void loadMenuScene()
+    {
+        SceneManager.LoadScene("Menu Kelvin");
     }
 }
