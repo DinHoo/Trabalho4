@@ -21,10 +21,9 @@ public class Menu : MonoBehaviour
 
     }
 
-    public void carregarJogo()
+    public void loadScene()
     {
-        print("jogo");
-        //SceneManager.LoadScene("Jogo");
+        SceneManager.LoadScene("Jogo Kelvin");
     }
 
     public void gameExit()
@@ -38,7 +37,10 @@ public class Menu : MonoBehaviour
 #endif
     }
 
-
+    public void creditsButton()
+    {
+        creditsPopUp.SetActive(true);
+    }
 
     public void creditsButton(bool b)
     {
