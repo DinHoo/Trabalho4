@@ -8,12 +8,12 @@ public class Game : MonoBehaviour
 {
     [SerializeField]
     private GameObject goMenuPopUp;
+
     [SerializeField]
     Color32[] colours;
+
     [SerializeField]
     Canal[] canals;
-
-
 
     // Start is called before the first frame update
     void Start()

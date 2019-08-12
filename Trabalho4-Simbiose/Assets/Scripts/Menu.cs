@@ -46,6 +46,4 @@ public class Menu : MonoBehaviour
     {
         creditsPopUp.SetActive(b);
     }
-
-
 }

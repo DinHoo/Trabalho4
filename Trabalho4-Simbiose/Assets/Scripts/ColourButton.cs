@@ -6,10 +6,11 @@ public class ColourButton : MonoBehaviour
 {
     Color32 currentColour;
     Color32[] colours;
+
     [SerializeField]
     Canal canal;
-    int index = 0;
 
+    int index = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class ColourButton : MonoBehaviour
                 changeColour();
             }
         }
+
         if (Input.GetMouseButtonDown(1))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -54,9 +56,9 @@ public class ColourButton : MonoBehaviour
         {
             index = 0;
         }
+
         currentColour = colours[index];
         GetComponent<SpriteRenderer>().color = currentColour;
-
     }
 
     public void activateColour()
