@@ -19,11 +19,11 @@ public class Game : MonoBehaviour
     [SerializeField]
     Transform[] spawnsPointsRight;
 
-    //Bolas
-    public Food ball;
+    //Comida
+    public Food[] food;
 
     [SerializeField]
-    Queue<Food> balls = new Queue<Food>();
+    Queue<Food> foodQueue = new Queue<Food>();
 
     public int maxQueue;
 
@@ -52,7 +52,7 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time >= timer + timerMax && balls.Count < maxQueue)
+        if (Time.time > timer + timerMax && foodQueue.Count < maxQueue)
         {
             timer = Time.time;
 
@@ -77,22 +77,24 @@ public class Game : MonoBehaviour
 
     void spawn()
     {
-        if (balls.Count > 0)
+        if (foodQueue.Count > 0)
         {
             respawn();
         }
         else
         {
-            Food b = Instantiate(ball, new Vector2(getSpawnPositionX(), spawnPoints.position.y), Quaternion.identity).GetComponent<Food>();
+            Food b = Instantiate(food[Random.Range(0, food.Length)], new Vector2(getSpawnPositionX(), spawnPoints.position.y), Quaternion.identity).GetComponent<Food>();
         }
     }
 
     void respawn()
     {
-        if (balls.Count <= 0)
+        if (foodQueue.Count <= 0)
+        {
             return;
+        }
 
-        Food b = balls.Dequeue();
+        Food b = foodQueue.Dequeue();
 
         b.transform.position = new Vector2(getSpawnPositionX(), spawnPoints.position.y);
 
@@ -103,13 +105,13 @@ public class Game : MonoBehaviour
 
     public void addToPool(Food b)
     {
-        if (balls.Count < maxQueue)
+        if (foodQueue.Count < maxQueue)
         {
             b.gameObject.SetActive(false);
 
             GameEventManager.canalColorChange -= b.checkToDestroy;
 
-            balls.Enqueue(b);
+            foodQueue.Enqueue(b);
         }
         else
         {

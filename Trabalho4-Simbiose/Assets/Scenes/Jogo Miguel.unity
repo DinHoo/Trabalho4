@@ -514,7 +514,7 @@ PrefabInstance:
     - target: {fileID: 6583775882749490636, guid: 4f68ef00daa47d140b0c9ccaa9c7a03e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.84
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 6583775882749490636, guid: 4f68ef00daa47d140b0c9ccaa9c7a03e,
         type: 3}
@@ -1748,7 +1748,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412850292}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.71, y: -4.31, z: 0}
+  m_LocalPosition: {x: -1.7, y: -4.31, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1933,7 +1933,7 @@ PrefabInstance:
     - target: {fileID: 6583775882749490636, guid: 4f68ef00daa47d140b0c9ccaa9c7a03e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.03
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6583775882749490636, guid: 4f68ef00daa47d140b0c9ccaa9c7a03e,
         type: 3}
@@ -2014,7 +2014,7 @@ PrefabInstance:
     - target: {fileID: 6583775882749490636, guid: 4f68ef00daa47d140b0c9ccaa9c7a03e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.71
+      value: -1.7
       objectReference: {fileID: 0}
     - target: {fileID: 6583775882749490636, guid: 4f68ef00daa47d140b0c9ccaa9c7a03e,
         type: 3}
@@ -2226,7 +2226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903440440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.85, y: -4.31, z: 0}
+  m_LocalPosition: {x: 1.7, y: -4.31, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2931,8 +2931,11 @@ MonoBehaviour:
   spawnsPointsRight:
   - {fileID: 2022178266}
   - {fileID: 66349915}
-  ball: {fileID: 480910986224582514, guid: 8903bddf705a5c24e9745597af6cd5d5, type: 3}
-  maxQueue: 6
+  food:
+  - {fileID: 480910986224582514, guid: 8903bddf705a5c24e9745597af6cd5d5, type: 3}
+  - {fileID: 1936305274342694284, guid: 94268cad5acbdd34c9f9f37a132427a3, type: 3}
+  - {fileID: 4364156342515571735, guid: 53ae972d4f46dd346ae29a8a86d1e159, type: 3}
+  maxQueue: 5
   goMenuPopUp: {fileID: 326670172}
   colours:
   - serializedVersion: 2

@@ -35,7 +35,6 @@ public class Food : MonoBehaviour
     public void checkToDestroy()
     {
         List<Collider2D> colliders = new List<Collider2D>();
-        //Collider2D[] colliders = new Collider2D[0];
 
         GetComponent<Rigidbody2D>().OverlapCollider(new ContactFilter2D().NoFilter(), colliders);
 
