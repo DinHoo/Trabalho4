@@ -46,7 +46,6 @@ public class Game : MonoBehaviour
         {
             canals[i].setColour(colours[i]);
         }
-
         spawn();
     }
 
