@@ -23,11 +23,7 @@ public class Game : MonoBehaviour
             canals[i].setColour(colours[i]);
         }
 
-        int zoeira = 0;
-        for (int kelvin = 0; kelvin < 5; kelvin++)
-        {
-            zoeira++;
-        }
+
     }
 
     // Update is called once per frame
