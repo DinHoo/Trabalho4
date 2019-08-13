@@ -22,6 +22,10 @@ public class Game : MonoBehaviour
         {
             canals[i].setColour(colours[i]);
         }
+
+        int a = 3;
+        int b = 2;
+        a + b;
     }
 
     // Update is called once per frame
