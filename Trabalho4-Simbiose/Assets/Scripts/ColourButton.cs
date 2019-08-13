@@ -23,6 +23,7 @@ public class ColourButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+#if UNITY_EDITOR
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -44,6 +45,29 @@ public class ColourButton : MonoBehaviour
                 activateColour();
             }
         }
+#endif
+
+#if UNITY_ANDROID
+        if (Input.touches.Length == 1)
+        {
+            Touch toque = Input.touches[0];
+            if (GetComponent<BoxCollider2D>().OverlapPoint(Camera.main.ScreenToWorldPoint(toque.position)))
+            {
+                if(toque.phase == TouchPhase.Began)
+                {
+                    changeColour();
+                }
+                else if (toque.phase == TouchPhase.Moved)
+                {
+                    activateColour();
+                }
+
+            }
+
+
+        }
+
+#endif
     }
 
     public void changeColour()
