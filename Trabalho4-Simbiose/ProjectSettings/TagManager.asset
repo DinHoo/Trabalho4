@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Game
   - Canal
+  - CanalInsides
   layers:
   - Default
   - TransparentFX

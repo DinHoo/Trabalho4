@@ -64,5 +64,7 @@ public class ColourButton : MonoBehaviour
     public void activateColour()
     {
         canal.setColour(currentColour);
+
+        GameEventManager.triggerCanalColorChange();
     }
 }
