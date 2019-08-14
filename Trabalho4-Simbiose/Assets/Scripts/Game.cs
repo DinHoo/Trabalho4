@@ -1,29 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
     //Timer
     [SerializeField]
-    float timerMax;
-    float timer = 0;
+    private float timerMax;
+
+    private float timer = 0;
 
     //Spawns
     [SerializeField]
-    Transform spawnPoints;
+    private Transform spawnPoints;
+
     [SerializeField]
-    Transform[] spawnsPointsLeft;
+    private Transform[] spawnsPointsLeft;
+
     [SerializeField]
-    Transform[] spawnsPointsRight;
+    private Transform[] spawnsPointsRight;
 
     //Comida
-    public Food[] food;
+    public GameObject[] food;
 
     [SerializeField]
-    Queue<Food> foodQueue = new Queue<Food>();
+    private Queue<Food> foodQueue = new Queue<Food>();
 
     public int maxQueue;
 
@@ -33,14 +34,14 @@ public class Game : MonoBehaviour
 
     //Cores
     [SerializeField]
-    Color32[] colours;
+    private Color32[] colours;
 
     //Canais
     [SerializeField]
-    Canal[] canals;
+    private Canal[] canals;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         for (int i = 0; i < canals.Length; i++)
         {
@@ -50,9 +51,9 @@ public class Game : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Time.time > timer + timerMax && foodQueue.Count < maxQueue)
+        if (Time.time > timer + timerMax)
         {
             timer = Time.time;
 
@@ -60,7 +61,7 @@ public class Game : MonoBehaviour
         }
     }
 
-    float getSpawnPositionX()
+    private float getSpawnPositionX()
     {
         float spawnHere;
         if (Random.value > 0.5)
@@ -75,8 +76,9 @@ public class Game : MonoBehaviour
         return spawnHere;
     }
 
-    void spawn()
+    private void spawn()
     {
+        print("Spawnando");
         if (foodQueue.Count > 0)
         {
             respawn();
@@ -87,7 +89,7 @@ public class Game : MonoBehaviour
         }
     }
 
-    void respawn()
+    private void respawn()
     {
         if (foodQueue.Count <= 0)
         {
@@ -107,6 +109,8 @@ public class Game : MonoBehaviour
     {
         if (foodQueue.Count < maxQueue)
         {
+            print("invisivel");
+
             b.gameObject.SetActive(false);
 
             GameEventManager.canalColorChange -= b.checkToDestroy;
@@ -115,6 +119,7 @@ public class Game : MonoBehaviour
         }
         else
         {
+            print("destroy da pool");
             Destroy(b.gameObject);
         }
     }
@@ -136,6 +141,6 @@ public class Game : MonoBehaviour
 
     public void loadMenuScene()
     {
-        SceneManager.LoadScene("Menu Kelvin");
+        SceneManager.LoadScene(0);
     }
 }

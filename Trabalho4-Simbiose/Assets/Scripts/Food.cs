@@ -1,16 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Food : MonoBehaviour
 {
     [SerializeField]
-    Color32 color;
+    private Color32 color;
 
-    Game gameRef;
+    [SerializeField]
+    private bool crossedCanal = false;
+
+    private Game gameRef;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         if (!gameRef || gameRef == null)
         {
@@ -20,9 +22,8 @@ public class Food : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
 
     public void randomizeColor()
@@ -34,17 +35,27 @@ public class Food : MonoBehaviour
 
     public void checkToDestroy()
     {
+        if (!gameObject.activeSelf)
+        {
+            return;
+        }
+
         List<Collider2D> colliders = new List<Collider2D>();
 
         GetComponent<Rigidbody2D>().OverlapCollider(new ContactFilter2D().NoFilter(), colliders);
 
-        foreach(Collider2D c in colliders)
+        foreach (Collider2D c in colliders)
         {
             if (c.transform.CompareTag("CanalInsides"))
             {
                 if (Utilities.isTwoColorsEqual(c.transform.parent.GetComponent<Canal>().GetColour(), color))
                 {
-                    gameRef.addToPool(this);
+                    print("check to destroy");
+                    if (gameObject.activeSelf)
+                    {
+                        crossedCanal = false;
+                        gameRef.addToPool(this);
+                    }
                 }
             }
         }
@@ -52,27 +63,67 @@ public class Food : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!gameObject.activeSelf)
+        {
+            return;
+        }
         if (collision.transform.CompareTag("CanalInsides"))
         {
             GameEventManager.canalColorChange += checkToDestroy;
+        }
+    }
 
-            if (Utilities.isTwoColorsEqual(collision.transform.parent.GetComponent<Canal>().GetColour(), color))
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (!gameObject.activeSelf)
+        {
+            print("saiu fake");
+            return;
+        }
+
+        if (other.transform.CompareTag("CanalInsides"))
+        {
+            if (crossedCanal)
             {
-                gameRef.addToPool(this);
+                crossedCanal = false;
+
+                if (Utilities.isTwoColorsEqual(other.transform.parent.GetComponent<Canal>().GetColour(), color))
+                {
+                    print("on trigger enter");
+                    if (gameObject.activeSelf)
+                    {
+                        crossedCanal = false;
+
+                        gameRef.addToPool(this);
+                    }
+                }
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (!gameObject.activeSelf)
+        {
+            print("saiu fake");
+            return;
+        }
         if (collision.transform.CompareTag("CanalInsides"))
         {
             GameEventManager.canalColorChange -= checkToDestroy;
 
             if (Utilities.isTwoColorsEqual(collision.transform.parent.GetComponent<Canal>().GetColour(), color))
             {
+                print("on trigger exit");
+
+                crossedCanal = false;
+
                 gameRef.addToPool(this);
             }
+        }
+        if (collision.transform.CompareTag("LimiteDestroy"))
+        {
+            crossedCanal = true;
         }
     }
 }

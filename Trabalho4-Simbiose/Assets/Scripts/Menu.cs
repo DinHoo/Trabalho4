@@ -1,29 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using TMPro;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
     [SerializeField]
-    GameObject creditsPopUp;
+    private GameObject creditsPopUp;
 
-    void Start()
+    private void Start()
     {
         Screen.orientation = ScreenOrientation.Portrait;
         Screen.SetResolution(1080, 1920, true);
     }
 
-    void Update()
+    private void Update()
     {
-
     }
 
     public void loadScene()
     {
-        SceneManager.LoadScene("Jogo Miguel");
+        SceneManager.LoadScene(1);
     }
 
     public void gameExit()
