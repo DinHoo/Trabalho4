@@ -6,15 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/__DELETED_GUID_Trash/2cda990e2423bbf4892e6590ba056729
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
     path: Assets/Scenes/Menu Kelvin.unity
     guid: 23298bd4d9d39084e945cfbb547a87f5
+  - enabled: 1
+    path: Assets/Scenes/Jogo Miguel.unity
+    guid: 50a09c6260cb6b8449020a6bdfb16e49
   - enabled: 0
     path: Assets/Scenes/Jogo Kelvin.unity
     guid: ccdc817bd15d8e04a98deb5e10ea118f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/JogoBruno.unity
     guid: 86955bb10bd6ef142a55deff869f0fb2
   m_configObjects: {}

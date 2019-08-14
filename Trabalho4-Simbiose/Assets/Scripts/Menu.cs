@@ -23,7 +23,7 @@ public class Menu : MonoBehaviour
 
     public void loadScene()
     {
-        SceneManager.LoadScene("Jogo Kelvin");
+        SceneManager.LoadScene("Jogo Miguel");
     }
 
     public void gameExit()

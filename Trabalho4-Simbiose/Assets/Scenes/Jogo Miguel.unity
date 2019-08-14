@@ -3923,11 +3923,11 @@ MonoBehaviour:
   goMenuPopUp: {fileID: 326670172}
   colours:
   - serializedVersion: 2
-    rgba: 4278190265
+    rgba: 4293591040
   - serializedVersion: 2
-    rgba: 4278239461
+    rgba: 4283039742
   - serializedVersion: 2
-    rgba: 4278221591
+    rgba: 4278192349
   canals:
   - {fileID: 1729792337}
   - {fileID: 1720439083}
