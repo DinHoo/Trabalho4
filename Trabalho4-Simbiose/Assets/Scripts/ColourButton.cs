@@ -1,19 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ColourButton : MonoBehaviour
 {
-    Color32 currentColour;
-    Color32[] colours;
+    private Color32 currentColour;
+    private Color32[] colours;
 
     [SerializeField]
-    Canal canal;
+    private Canal canal;
 
-    int index = 0;
+    private int index = 0;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         colours = GameObject.FindGameObjectWithTag("Game").GetComponent<Game>().getColours();
         currentColour = colours[index];
@@ -21,7 +19,7 @@ public class ColourButton : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
 #if UNITY_EDITOR
         if (Input.GetMouseButtonDown(0))
@@ -48,12 +46,11 @@ public class ColourButton : MonoBehaviour
 #endif
 
 #if UNITY_ANDROID
-        if (Input.touches.Length == 1)
+        foreach (Touch toque in Input.touches)
         {
-            Touch toque = Input.touches[0];
             if (GetComponent<BoxCollider2D>().OverlapPoint(Camera.main.ScreenToWorldPoint(toque.position)))
             {
-                if(toque.phase == TouchPhase.Began)
+                if (toque.phase == TouchPhase.Began)
                 {
                     changeColour();
                 }
@@ -61,10 +58,7 @@ public class ColourButton : MonoBehaviour
                 {
                     activateColour();
                 }
-
             }
-
-
         }
 
 #endif
