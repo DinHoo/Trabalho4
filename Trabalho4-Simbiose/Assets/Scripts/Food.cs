@@ -9,6 +9,11 @@ public class Food : MonoBehaviour
     [SerializeField]
     private bool crossedCanal = false;
 
+    bool limiteExit = false;
+
+    public float necessaryTime = 0.5f;
+    float elapsed;
+
     private Game gameRef;
 
     // Start is called before the first frame update
@@ -99,6 +104,16 @@ public class Food : MonoBehaviour
                 }
             }
         }
+
+        if (other.transform.CompareTag("Limite"))
+        {
+
+            elapsed += Time.fixedDeltaTime;
+            if (elapsed > necessaryTime)
+            {
+                gameRef.isGameOver = true;
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -124,6 +139,10 @@ public class Food : MonoBehaviour
         if (collision.transform.CompareTag("LimiteDestroy"))
         {
             crossedCanal = true;
+        }
+        if (collision.transform.CompareTag("Limite"))
+        {
+            elapsed = 0;
         }
     }
 }

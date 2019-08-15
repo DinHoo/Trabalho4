@@ -1,9 +1,13 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Game : MonoBehaviour
 {
+    [SerializeField]
+    TextMeshProUGUI textScore;
+
     //Timer
     [SerializeField]
     private float timerMax;
@@ -40,6 +44,12 @@ public class Game : MonoBehaviour
     [SerializeField]
     private Canal[] canals;
 
+    [SerializeField]
+    public bool isGameOver = false;
+
+    [SerializeField]
+    public float score;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -47,17 +57,23 @@ public class Game : MonoBehaviour
         {
             canals[i].setColour(colours[i]);
         }
+
+        score = 0;
         spawn();
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (Time.time > timer + timerMax)
+        if (!isGameOver)
         {
-            timer = Time.time;
+            if (Time.time > timer + timerMax)
+            {
+                timer = Time.time;
 
-            spawn();
+                spawn();
+            }
+            textScore.text = "Score: " + score;
         }
     }
 
@@ -107,6 +123,8 @@ public class Game : MonoBehaviour
 
     public void addToPool(Food b)
     {
+        score++;
+
         if (foodQueue.Count < maxQueue)
         {
             print("invisivel");
@@ -143,4 +161,6 @@ public class Game : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+
 }
