@@ -7,6 +7,8 @@ public class Game : MonoBehaviour
 {
     [SerializeField]
     TextMeshProUGUI textScore;
+    [SerializeField]
+    TextMeshProUGUI textScoreF;
 
     //Timer
     [SerializeField]
@@ -50,6 +52,9 @@ public class Game : MonoBehaviour
     [SerializeField]
     public float score;
 
+    [SerializeField]
+    private GameObject telaGameOver;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -60,6 +65,9 @@ public class Game : MonoBehaviour
 
         score = 0;
         spawn();
+        isGameOver = false;
+        telaGameOver.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -74,6 +82,12 @@ public class Game : MonoBehaviour
                 spawn();
             }
             textScore.text = "Score: " + score;
+            textScoreF.text = "Score: " + score;
+        }
+        else
+        {
+            telaGameOver.SetActive(true);
+
         }
     }
 
@@ -162,5 +176,9 @@ public class Game : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void Reload()
+    {
+        SceneManager.LoadScene(1);
+    }
 
 }

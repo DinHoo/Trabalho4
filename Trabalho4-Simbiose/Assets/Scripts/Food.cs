@@ -11,7 +11,7 @@ public class Food : MonoBehaviour
 
     bool limiteExit = false;
 
-    public float necessaryTime = 0.5f;
+    public float necessaryTime = 1.5f;
     float elapsed;
 
     private Game gameRef;
