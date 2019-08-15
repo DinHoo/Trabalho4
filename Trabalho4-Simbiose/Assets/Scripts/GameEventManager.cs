@@ -11,4 +11,9 @@
             canalColorChange();
         }
     }
+
+    public static void clearAllEvents()
+    {
+        canalColorChange = null;
+    }
 }

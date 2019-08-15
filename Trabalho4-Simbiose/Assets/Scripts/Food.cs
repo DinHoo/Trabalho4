@@ -9,12 +9,13 @@ public class Food : MonoBehaviour
     [SerializeField]
     private bool crossedCanal = false;
 
-    bool limiteExit = false;
+    private bool limiteExit = false;
 
     public float necessaryTime = 1.5f;
-    float elapsed;
+    private float elapsed;
 
     private Game gameRef;
+    private bool registeredColorChange = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -40,6 +41,7 @@ public class Food : MonoBehaviour
 
     public void checkToDestroy()
     {
+        if (!gameObject || gameObject == null || !this || this == null) return;
         if (!gameObject.activeSelf)
         {
             return;
@@ -55,10 +57,11 @@ public class Food : MonoBehaviour
             {
                 if (Utilities.isTwoColorsEqual(c.transform.parent.GetComponent<Canal>().GetColour(), color))
                 {
-                    print("check to destroy");
+                    // print("check to destroy");
                     if (gameObject.activeSelf)
                     {
                         crossedCanal = false;
+                        RegisterColorChange(false);
                         gameRef.addToPool(this);
                     }
                 }
@@ -74,7 +77,7 @@ public class Food : MonoBehaviour
         }
         if (collision.transform.CompareTag("CanalInsides"))
         {
-            GameEventManager.canalColorChange += checkToDestroy;
+            RegisterColorChange(true);
         }
     }
 
@@ -82,7 +85,7 @@ public class Food : MonoBehaviour
     {
         if (!gameObject.activeSelf)
         {
-            print("saiu fake");
+            // print("saiu fake");
             return;
         }
 
@@ -90,15 +93,13 @@ public class Food : MonoBehaviour
         {
             if (crossedCanal)
             {
-                crossedCanal = false;
-
                 if (Utilities.isTwoColorsEqual(other.transform.parent.GetComponent<Canal>().GetColour(), color))
                 {
-                    print("on trigger enter");
+                    // print("on trigger enter");
                     if (gameObject.activeSelf)
                     {
                         crossedCanal = false;
-
+                        RegisterColorChange(false);
                         gameRef.addToPool(this);
                     }
                 }
@@ -107,7 +108,6 @@ public class Food : MonoBehaviour
 
         if (other.transform.CompareTag("Limite"))
         {
-
             elapsed += Time.fixedDeltaTime;
             if (elapsed > necessaryTime)
             {
@@ -120,29 +120,49 @@ public class Food : MonoBehaviour
     {
         if (!gameObject.activeSelf)
         {
-            print("saiu fake");
+            // print("saiu fake");
             return;
         }
+
         if (collision.transform.CompareTag("CanalInsides"))
         {
-            GameEventManager.canalColorChange -= checkToDestroy;
-
             if (Utilities.isTwoColorsEqual(collision.transform.parent.GetComponent<Canal>().GetColour(), color))
             {
-                print("on trigger exit");
+                // print("on trigger exit");
 
                 crossedCanal = false;
-
+                RegisterColorChange(false);
                 gameRef.addToPool(this);
             }
         }
+
         if (collision.transform.CompareTag("LimiteDestroy"))
         {
-            crossedCanal = true;
+            //print("Crossou");
+            List<Collider2D> colliders = new List<Collider2D>();
+
+            GetComponent<Rigidbody2D>().OverlapCollider(new ContactFilter2D().NoFilter(), colliders);
+
+            foreach (Collider2D c in colliders)
+            {
+                if (c.transform.CompareTag("CanalInsides"))
+                {
+                    crossedCanal = true;
+                }
+            }
         }
+
         if (collision.transform.CompareTag("Limite"))
         {
             elapsed = 0;
         }
+    }
+
+    public void RegisterColorChange(bool enabled)
+    {
+        if (!enabled) GameEventManager.canalColorChange -= checkToDestroy;
+        else if (!registeredColorChange) GameEventManager.canalColorChange += checkToDestroy;
+
+        registeredColorChange = enabled;
     }
 }

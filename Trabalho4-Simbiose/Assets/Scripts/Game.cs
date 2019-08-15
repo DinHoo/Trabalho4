@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class Game : MonoBehaviour
 {
     [SerializeField]
-    TextMeshProUGUI textScore;
+    private TextMeshProUGUI textScore;
+
     [SerializeField]
-    TextMeshProUGUI textScoreF;
+    private TextMeshProUGUI textScoreF;
 
     //Timer
     [SerializeField]
@@ -51,6 +52,7 @@ public class Game : MonoBehaviour
 
     [SerializeField]
     public int score;
+
     public static int highScore = 0;
 
     [SerializeField]
@@ -59,7 +61,7 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-
+        GameEventManager.clearAllEvents();
         highScore = PlayerPrefs.GetInt("highscore", highScore);
 
         for (int i = 0; i < canals.Length; i++)
@@ -71,14 +73,13 @@ public class Game : MonoBehaviour
         spawn();
         isGameOver = false;
         telaGameOver.SetActive(false);
-        
     }
 
     // Update is called once per frame
     private void Update()
     {
         if (score >= PlayerPrefs.GetInt("highscore", highScore))
-        PlayerPrefs.SetInt("highscore", score);
+            PlayerPrefs.SetInt("highscore", score);
 
         if (!isGameOver)
         {
@@ -94,7 +95,6 @@ public class Game : MonoBehaviour
         else
         {
             telaGameOver.SetActive(true);
-
         }
     }
 
@@ -144,21 +144,24 @@ public class Game : MonoBehaviour
 
     public void addToPool(Food b)
     {
+        if (!b || b == null) return;
+        if (!b.gameObject || b.gameObject == null) return;
+
         score++;
 
+        b.RegisterColorChange(false);
         if (foodQueue.Count < maxQueue)
         {
             print("invisivel");
 
             b.gameObject.SetActive(false);
 
-            GameEventManager.canalColorChange -= b.checkToDestroy;
-
             foodQueue.Enqueue(b);
         }
         else
         {
             print("destroy da pool");
+
             Destroy(b.gameObject);
         }
     }
@@ -187,5 +190,4 @@ public class Game : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
-
 }
