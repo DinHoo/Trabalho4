@@ -1,15 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Menu : MonoBehaviour
 {
     [SerializeField]
     private GameObject creditsPopUp;
 
+    public TextMeshProUGUI textHighScore;
+
     private void Start()
     {
         Screen.orientation = ScreenOrientation.Portrait;
         Screen.SetResolution(1080, 1920, true);
+        textHighScore.text = "High Score: " + PlayerPrefs.GetInt("highscore");
     }
 
     private void Update()

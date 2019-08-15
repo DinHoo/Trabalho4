@@ -50,7 +50,8 @@ public class Game : MonoBehaviour
     public bool isGameOver = false;
 
     [SerializeField]
-    public float score;
+    public int score;
+    public static int highScore = 0;
 
     [SerializeField]
     private GameObject telaGameOver;
@@ -58,6 +59,9 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+
+        highScore = PlayerPrefs.GetInt("highscore", highScore);
+
         for (int i = 0; i < canals.Length; i++)
         {
             canals[i].setColour(colours[i]);
@@ -73,6 +77,9 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (score >= PlayerPrefs.GetInt("highscore", highScore))
+        PlayerPrefs.SetInt("highscore", score);
+
         if (!isGameOver)
         {
             if (Time.time > timer + timerMax)
