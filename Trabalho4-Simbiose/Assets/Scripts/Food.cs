@@ -1,8 +1,22 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Utilities;
+
 
 public class Food : MonoBehaviour
 {
+    [SerializeField]
+    Sprite rostoNormal;
+    [SerializeField]
+    Sprite rostoBatida;
+    [SerializeField]
+    SpriteRenderer renderRosto;
+    [SerializeField]
+    float intervaloRosto;
+    float tempoRosto;
+
+
     [SerializeField]
     private Color32 color;
 
@@ -30,6 +44,14 @@ public class Food : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if(tempoRosto >= intervaloRosto)
+        {
+            renderRosto.sprite = rostoNormal;
+        }
+        else
+        {
+            tempoRosto += Time.deltaTime;
+        }
     }
 
     public void randomizeColor()
@@ -37,7 +59,19 @@ public class Food : MonoBehaviour
         color = gameRef.getColours()[Random.Range(0, gameRef.getColours().Length)];
 
         GetComponent<SpriteRenderer>().color = color;
+        if(Utilities.Utilities.isColorBright(color))
+        {
+            renderRosto.color = Color.black;
+            print("preto");
+        }
+        else
+        {
+            renderRosto.color = Color.white;
+            print("branco");
+        }
     }
+
+   
 
     public void checkToDestroy()
     {
@@ -55,7 +89,7 @@ public class Food : MonoBehaviour
         {
             if (c.transform.CompareTag("CanalInsides"))
             {
-                if (Utilities.isTwoColorsEqual(c.transform.parent.GetComponent<Canal>().GetColour(), color))
+                if (Utilities.Utilities.isTwoColorsEqual(c.transform.parent.GetComponent<Canal>().GetColour(), color))
                 {
                     // print("check to destroy");
                     if (gameObject.activeSelf)
@@ -93,7 +127,7 @@ public class Food : MonoBehaviour
         {
             if (crossedCanal)
             {
-                if (Utilities.isTwoColorsEqual(other.transform.parent.GetComponent<Canal>().GetColour(), color))
+                if (Utilities.Utilities.isTwoColorsEqual(other.transform.parent.GetComponent<Canal>().GetColour(), color))
                 {
                     // print("on trigger enter");
                     if (gameObject.activeSelf)
@@ -126,7 +160,7 @@ public class Food : MonoBehaviour
 
         if (collision.transform.CompareTag("CanalInsides"))
         {
-            if (Utilities.isTwoColorsEqual(collision.transform.parent.GetComponent<Canal>().GetColour(), color))
+            if (Utilities.Utilities.isTwoColorsEqual(collision.transform.parent.GetComponent<Canal>().GetColour(), color))
             {
                 // print("on trigger exit");
 
@@ -164,5 +198,16 @@ public class Food : MonoBehaviour
         else if (!registeredColorChange) GameEventManager.canalColorChange += checkToDestroy;
 
         registeredColorChange = enabled;
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(renderRosto.sprite == rostoNormal && GetComponent<Rigidbody2D>().velocity.magnitude > 0)
+        {
+            renderRosto.sprite = rostoBatida;
+            tempoRosto = 0;
+
+        }
+        
     }
 }
