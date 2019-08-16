@@ -70,7 +70,7 @@ public class Game : MonoBehaviour
         }
 
         score = 0;
-        spawn();
+        
         isGameOver = false;
         telaGameOver.SetActive(false);
     }
