@@ -1273,6 +1273,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1836613003813157903, guid: 4f68ef00daa47d140b0c9ccaa9c7a03e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b39be5bef85522745becf42f6bae6ded,
+        type: 3}
+    - target: {fileID: 1836613003813157903, guid: 4f68ef00daa47d140b0c9ccaa9c7a03e,
+        type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836613003813157903, guid: 4f68ef00daa47d140b0c9ccaa9c7a03e,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f68ef00daa47d140b0c9ccaa9c7a03e, type: 3}
 --- !u!114 &488008880 stripped
@@ -1668,7 +1684,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.5377358, g: 0.41344783, b: 0.52708256, a: 1}
+  m_BackGroundColor: {r: 0.8584906, g: 0.7329566, b: 0.84672177, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2653,7 +2669,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dcc19e98f781b4740aae76f29dedf708, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0d42c280d7421db4db42d598b387307b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2672,7 +2688,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1097694251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.31, z: 0}
+  m_LocalPosition: {x: 0, y: -4.31, z: -5}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3853,7 +3869,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dcc19e98f781b4740aae76f29dedf708, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0d42c280d7421db4db42d598b387307b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3872,7 +3888,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412850292}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.77, y: -4.31, z: 0}
+  m_LocalPosition: {x: -1.77, y: -4.31, z: -5}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4425,6 +4441,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1836613003813157903, guid: 4f68ef00daa47d140b0c9ccaa9c7a03e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b39be5bef85522745becf42f6bae6ded,
+        type: 3}
+    - target: {fileID: 1836613003813157903, guid: 4f68ef00daa47d140b0c9ccaa9c7a03e,
+        type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836613003813157903, guid: 4f68ef00daa47d140b0c9ccaa9c7a03e,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f68ef00daa47d140b0c9ccaa9c7a03e, type: 3}
 --- !u!114 &1720439083 stripped
@@ -4584,6 +4616,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836613003813157903, guid: 4f68ef00daa47d140b0c9ccaa9c7a03e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b39be5bef85522745becf42f6bae6ded,
+        type: 3}
+    - target: {fileID: 1836613003813157903, guid: 4f68ef00daa47d140b0c9ccaa9c7a03e,
+        type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836613003813157903, guid: 4f68ef00daa47d140b0c9ccaa9c7a03e,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f68ef00daa47d140b0c9ccaa9c7a03e, type: 3}
@@ -4765,7 +4813,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dcc19e98f781b4740aae76f29dedf708, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0d42c280d7421db4db42d598b387307b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4784,7 +4832,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903440440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.77, y: -4.31, z: 0}
+  m_LocalPosition: {x: 1.77, y: -4.31, z: -5}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
