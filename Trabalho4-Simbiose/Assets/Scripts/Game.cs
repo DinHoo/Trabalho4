@@ -58,6 +58,8 @@ public class Game : MonoBehaviour
     [SerializeField]
     private GameObject telaGameOver;
 
+    public Sfx sfxRef;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -164,6 +166,8 @@ public class Game : MonoBehaviour
 
             Destroy(b.gameObject);
         }
+
+        sfxRef.Blip.Play();
     }
 
     public Color32[] getColours()
@@ -190,4 +194,5 @@ public class Game : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
 }

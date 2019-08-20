@@ -10,9 +10,12 @@ public class ColourButton : MonoBehaviour
 
     private int index = 0;
 
+    public float timerChange, timerChangeMax = 2f;
+
     // Start is called before the first frame update
     private void Start()
     {
+        timerChange = Time.time;
         colours = GameObject.FindGameObjectWithTag("Game").GetComponent<Game>().getColours();
         currentColour = colours[index];
         GetComponent<SpriteRenderer>().color = currentColour;
@@ -21,6 +24,13 @@ public class ColourButton : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+
+
+
+
+
+
+
 #if UNITY_EDITOR
         if (Input.GetMouseButtonDown(0))
         {
@@ -30,6 +40,7 @@ public class ColourButton : MonoBehaviour
             if (hit.collider != null && hit.collider.transform == transform)
             {
                 changeColour();
+
             }
         }
 
@@ -63,6 +74,8 @@ public class ColourButton : MonoBehaviour
 
 #endif
     }
+
+
 
     public void changeColour()
     {

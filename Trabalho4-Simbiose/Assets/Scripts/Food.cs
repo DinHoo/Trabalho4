@@ -29,6 +29,8 @@ public class Food : MonoBehaviour
     private float elapsed;
 
     private Game gameRef;
+
+
     private bool registeredColorChange = false;
 
     // Start is called before the first frame update
@@ -172,6 +174,8 @@ public class Food : MonoBehaviour
 
         if (collision.transform.CompareTag("LimiteDestroy"))
         {
+            gameRef.sfxRef.Blop.Play();
+
             //print("Crossou");
             List<Collider2D> colliders = new List<Collider2D>();
 
