@@ -89,6 +89,9 @@ public class Game : MonoBehaviour
             {
                 timer = Time.time;
 
+                if(timerMax >= 0.4)
+                timerMax -= 0.01f;
+
                 spawn();
             }
             textScore.text = "Score: " + score;
