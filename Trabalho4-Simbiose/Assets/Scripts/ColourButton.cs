@@ -63,7 +63,8 @@ public class ColourButton : MonoBehaviour
 
             if (hit.collider != null && hit.collider.transform == transform && isAbleToChange == true)
             {
-                activateColour();
+                
+                    activateColour();
             }
         }
 #endif
@@ -104,6 +105,10 @@ public class ColourButton : MonoBehaviour
 
     public void activateColour()
     {
+        if (Utilities.Utilities.isTwoColorsEqual(canal.GetColour(), currentColour))
+        {
+            return;
+        }
         canal.setColour(currentColour);
 
         GameEventManager.triggerCanalColorChange();
