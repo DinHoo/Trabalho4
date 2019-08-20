@@ -7,6 +7,9 @@ public class Menu : MonoBehaviour
     [SerializeField]
     private GameObject creditsPopUp;
 
+    [SerializeField]
+    private GameObject startpopup;
+
     public TextMeshProUGUI textHighScore;
 
     private void Start()
@@ -44,5 +47,24 @@ public class Menu : MonoBehaviour
     public void creditsButton(bool b)
     {
         creditsPopUp.SetActive(b);
+    }
+
+    public void loadfase1()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void loadfase2()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void startbut()
+    {
+        startpopup.SetActive(true);
+    }
+    public void startbut(bool b)
+    {
+        startpopup.SetActive(b);
     }
 }

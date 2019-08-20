@@ -61,10 +61,9 @@ public class ColourButton : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
 
-            if (hit.collider != null && hit.collider.transform == transform)
+            if (hit.collider != null && hit.collider.transform == transform && isAbleToChange == true)
             {
-                if (isAbleToChange == true)
-                    activateColour();
+                activateColour();
             }
         }
 #endif
@@ -78,10 +77,9 @@ public class ColourButton : MonoBehaviour
                 {
                     changeColour();
                 }
-                else if (toque.phase == TouchPhase.Moved)
+                else if (toque.phase == TouchPhase.Moved && isAbleToChange == true)
                 {
-                    if (isAbleToChange == true)
-                        activateColour();
+                    activateColour();
                 }
             }
         }

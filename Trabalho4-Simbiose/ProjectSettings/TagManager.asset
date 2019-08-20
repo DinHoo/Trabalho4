@@ -9,6 +9,7 @@ TagManager:
   - CanalInsides
   - Limite
   - LimiteDestroy
+  - Parede
   layers:
   - Default
   - TransparentFX

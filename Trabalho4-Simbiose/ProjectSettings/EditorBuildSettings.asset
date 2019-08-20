@@ -15,18 +15,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Jogo.unity
     guid: 50d15897e1ae3864fa446771cbc9e70f
   - enabled: 0
-    path: Assets/__DELETED_GUID_Trash/6f03a59a3608fd94682e0e4f017e5271
+    path: 
     guid: 6f03a59a3608fd94682e0e4f017e5271
   - enabled: 0
-    path: Assets/Scenes/Menu Kelvin.unity
+    path: 
     guid: 23298bd4d9d39084e945cfbb547a87f5
   - enabled: 0
-    path: Assets/Scenes/Jogo Miguel.unity
+    path: 
     guid: 50a09c6260cb6b8449020a6bdfb16e49
   - enabled: 0
-    path: Assets/Scenes/Jogo Kelvin.unity
+    path: 
     guid: ccdc817bd15d8e04a98deb5e10ea118f
   - enabled: 0
-    path: Assets/Scenes/JogoBruno.unity
+    path: 
     guid: 86955bb10bd6ef142a55deff869f0fb2
+  - enabled: 1
+    path: Assets/Scenes/Jogo 1.unity
+    guid: 02d2b749192a7474aa7eb9a47aa78f3c
   m_configObjects: {}

@@ -198,4 +198,14 @@ public class Game : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void loadfase1()
+    {
+        SceneManager.LoadScene("Jogo");
+    }
+
+    public void loadfase2()
+    {
+        SceneManager.LoadScene("Jogo 1");
+    }
+
 }

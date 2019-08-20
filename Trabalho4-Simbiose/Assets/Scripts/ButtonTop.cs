@@ -26,13 +26,14 @@ public class ButtonTop : MonoBehaviour
             {
                 if (isLeftTopButton == true)
                 {
-                    platform[0].transform.Rotate(0, 0, 3);
-                    platform[1].transform.Rotate(0, 0, 3);
+                    foreach(Platform p in platform)
+                    p.transform.Rotate(0, 0, 3);
+                    
                 }
                 else
                 {
-                    platform[0].transform.Rotate(0, 0, -3);
-                    platform[1].transform.Rotate(0, 0, -3);
+                    foreach (Platform p in platform)
+                        p.transform.Rotate(0, 0, -3);
                 }
             }
         }
@@ -47,13 +48,13 @@ public class ButtonTop : MonoBehaviour
                 {
                     if (isLeftTopButton == true)
                     {
-                        platform[0].transform.Rotate(0, 0, 1);
-                        platform[1].transform.Rotate(0, 0, 1);
+                        foreach (Platform p in platform)
+                            p.transform.Rotate(0, 0, 3);
                     }
                     else
                     {
-                        platform[0].transform.Rotate(0, 0, -1);
-                        platform[1].transform.Rotate(0, 0, -1);
+                        foreach (Platform p in platform)
+                            p.transform.Rotate(0, 0, -3);
                     }
                 }
             }
